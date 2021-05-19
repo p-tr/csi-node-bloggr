@@ -2,10 +2,8 @@ const express = require('express');
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log('Middleware 1');
-  next();
-});
+app.use('/users', require('./users'));
+app.use('/posts', require('./posts'));
 
 app.get('/', (req, res, next) => {
   res.send('Hello World !');
